@@ -30,7 +30,7 @@
 		{
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBoxText = new System.Windows.Forms.TextBox();
+			this.textBoxLines = new System.Windows.Forms.TextBox();
 			this.textBoxOutput = new System.Windows.Forms.TextBox();
 			this.buttonFolderOutput = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
@@ -78,18 +78,18 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Output:";
 			// 
-			// textBoxText
+			// textBoxLines
 			// 
-			this.textBoxText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxLines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxText.Location = new System.Drawing.Point(60, 6);
-			this.textBoxText.Multiline = true;
-			this.textBoxText.Name = "textBoxText";
-			this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBoxText.Size = new System.Drawing.Size(536, 159);
-			this.textBoxText.TabIndex = 2;
-			this.textBoxText.Text = "Enter lines of text here; each is output to it\'s own file.";
+			this.textBoxLines.Location = new System.Drawing.Point(60, 6);
+			this.textBoxLines.Multiline = true;
+			this.textBoxLines.Name = "textBoxLines";
+			this.textBoxLines.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.textBoxLines.Size = new System.Drawing.Size(536, 159);
+			this.textBoxLines.TabIndex = 2;
+			this.textBoxLines.Text = "Enter lines of text here; each is output to its own file.";
 			// 
 			// textBoxOutput
 			// 
@@ -309,7 +309,7 @@
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.buttonFolderOutput);
 			this.Controls.Add(this.textBoxOutput);
-			this.Controls.Add(this.textBoxText);
+			this.Controls.Add(this.textBoxLines);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.MinimumSize = new System.Drawing.Size(460, 188);
@@ -333,7 +333,7 @@
 
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBoxText;
+		private System.Windows.Forms.TextBox textBoxLines;
 		private System.Windows.Forms.TextBox textBoxOutput;
 		private System.Windows.Forms.Button buttonFolderOutput;
 		private System.Windows.Forms.Button button2;

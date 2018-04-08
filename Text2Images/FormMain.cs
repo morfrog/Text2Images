@@ -21,7 +21,7 @@ namespace Text2Images
 			textBoxOutput.Text = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) ?? "C:\\temp", "Text2Images\\Output");
 			comboBoxFonts.Items.AddRange( FontFamily.Families.Select(f=>f.Name).ToArray());
 			comboBoxFonts.SelectedIndex = Math.Max(comboBoxFonts.Items.IndexOf("Arial"), 0);
-			textBoxText.SelectAll();
+			textBoxLines.SelectAll();
 		}
 
 		Bitmap _bmp;
@@ -51,31 +51,35 @@ namespace Text2Images
 				PaddingVertical = (int)numericUpDownPaddingVertical.Value
 			};
 
-			System.IO.Directory.CreateDirectory(textBoxOutput.Text);
-
-			var lines = textBoxText
-				.Text
-				.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-			var headLen = lines.Count().ToString().Length;
-			var headFmt = $"D{headLen}";
-
-			var fileLen = (255 - (textBoxOutput.Text.Length+1)) - 4 /*extension*/ - (headLen + 1);
-
-			int index;
-			for (index = 0; index < lines.Length; index++ )
-			{
-				var line = lines[index];
-				var name = (line.Length > fileLen ? line.Substring(0, fileLen) : line).Replace("\\","").Replace("/","");
-				var file = System.IO.Path.Combine(textBoxOutput.Text, $"{(index + 1).ToString(headFmt)}.{name}.jpg");
-			
-				CreateTextImage(line, drawOptions, file);
-			}
+			int count = CreateTextImages(textBoxLines.Text, drawOptions);
 
 			if (showStatus)
 			{
-				var msg = $"{index} files written to:{Environment.NewLine}{Environment.NewLine}  {textBoxOutput.Text}";
+				var msg = $"{count} file(s) written to:{Environment.NewLine}{Environment.NewLine}  {textBoxOutput.Text}";
 				MessageBox.Show(msg, this.Text);
 			}
+		}
+
+		private int CreateTextImages(string lines, DrawOptions drawOptions)
+		{
+			System.IO.Directory.CreateDirectory(textBoxOutput.Text);
+
+			var arrayLines = lines.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+			var headLen = lines.Count().ToString().Length;
+			var headFmt = $"D{headLen}";
+
+			var fileLen = (255 - (textBoxOutput.Text.Length + 1)) - 4 /*extension*/ - (headLen + 1);
+
+			int index;
+			for (index = 0; index < arrayLines.Length; index++)
+			{
+				var line = arrayLines[index];
+				var name = (line.Length > fileLen ? line.Substring(0, fileLen) : line).Replace("\\", "").Replace("/", "");
+				var file = System.IO.Path.Combine(textBoxOutput.Text, $"{(index + 1).ToString(headFmt)}.{name}.jpg");
+
+				CreateTextImage(line, drawOptions, file);
+			}
+			return index;
 		}
 
 		private void CreateTextImage(string text, DrawOptions drawOptions, string fileName)
