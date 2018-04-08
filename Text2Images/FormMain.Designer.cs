@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBoxText = new System.Windows.Forms.TextBox();
@@ -90,7 +89,7 @@
 			this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.textBoxText.Size = new System.Drawing.Size(536, 159);
 			this.textBoxText.TabIndex = 2;
-			this.textBoxText.Text = resources.GetString("textBoxText.Text");
+			this.textBoxText.Text = "Enter lines of text here; each is output to it\'s own file.";
 			// 
 			// textBoxOutput
 			// 

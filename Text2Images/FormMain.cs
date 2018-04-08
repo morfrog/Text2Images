@@ -18,8 +18,10 @@ namespace Text2Images
 			InitializeComponent();
 			 _bmp = new Bitmap(2000, 50);
 			_graphics = Graphics.FromImage(_bmp);
+			textBoxOutput.Text = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) ?? "C:\\temp", "Text2Images\\Output");
 			comboBoxFonts.Items.AddRange( FontFamily.Families.Select(f=>f.Name).ToArray());
 			comboBoxFonts.SelectedIndex = Math.Max(comboBoxFonts.Items.IndexOf("Arial"), 0);
+			textBoxText.SelectAll();
 		}
 
 		Bitmap _bmp;
@@ -48,6 +50,8 @@ namespace Text2Images
 				PaddingHorizontal = (int)numericUpDownPaddingHorizontal.Value,
 				PaddingVertical = (int)numericUpDownPaddingVertical.Value
 			};
+
+			System.IO.Directory.CreateDirectory(textBoxOutput.Text);
 
 			var lines = textBoxText
 				.Text

@@ -117,19 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBoxText.Text" xml:space="preserve">
-    <value>This is his face.
-Đead TÊam
-What did the apple say to the pear.
-Sticks and stones
-Good words are written here
-There he goes
-The devil has arrived, he's wearing Prada.
-What is the age of the book
-THe king sits on his throne.
-ÊÔÊÂÔÊÂÔÊÂÔ
-ĐÔÊ nut man loves to eat dough</value>
-  </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
